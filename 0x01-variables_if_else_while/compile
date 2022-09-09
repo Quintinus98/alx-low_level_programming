@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc $CFILE -o main
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 $CFILE -o main
