@@ -1,10 +1,9 @@
 #include <stdio.h>
 
 /**
- * function: puts
- * main: main
+ * main - Entry point
  *
- * return: 0 (Success)
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
