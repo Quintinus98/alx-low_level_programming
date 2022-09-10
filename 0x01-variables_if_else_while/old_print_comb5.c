@@ -8,42 +8,42 @@
  */
 int main(void)
 {
-	int a;
-	int b;
-	int c;
+	int a = '0';
+	int b = '0';
+	int c = '0';
 	int d;
 
-	for (a = '0'; a <= '9'; a++)
+	while (a <= '9')
 	{
-		for (b = '0'; b <= '9'; b++)
+		while (b <= '9')
 		{
-			for (c = a; c <= '9'; c++)
+			d = b + 1;
+			while (c <= '9')
 			{
-				if (c == a)
-				{
-					d = b + 1;
-				}
-				else
-				{
-					d = '0';
-				}
-				for (d = d; d <= '9'; d++)
+				while (d <= '9')
 				{
 					putchar(a);
 					putchar(b);
 					putchar(' ');
 					putchar(c);
 					putchar(d);
-					if (a == '9' && c == '9' && d == '9' && b == '8')
+					if (a == '9' && b == '8' && c == '9' && d == '9')
 					{
 						d++;
 						continue;
 					}
 					putchar(',');
 					putchar(' ');
+					d++;
 				}
+				c++;
+				d = '0';
 			}
+			b++;
+			c = a;
 		}
+		a++;
+		b = '0';
 	}
 	putchar('\n');
 	return (0);
