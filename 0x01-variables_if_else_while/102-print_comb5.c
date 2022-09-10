@@ -4,7 +4,7 @@
 /**
  * main - Entry point
  *
- * Return - Always 0 (Success)
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
@@ -17,10 +17,9 @@ int main(void)
 	{
 		while (b <= '8')
 		{
+			d = b + 1;
 			while (c <= '9')
 			{
-				d = '0';
-				d = b + 1;
 				while (d <= '9')
 				{
 					putchar(a);
@@ -38,6 +37,7 @@ int main(void)
 					d++;
 				}
 				c++;
+				d = '0';
 			}
 			b++;
 			c = a;
