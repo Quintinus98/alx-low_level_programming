@@ -14,10 +14,10 @@ int main(void)
 	while (ch <= 'f')
 	{
 		while (n <= '9')
-        	{
-                	putchar(n);
-                	n++;
-        	}
+		{
+			putchar(n);
+			n++;
+		}
 		putchar(ch);
 		ch++;
 	}
