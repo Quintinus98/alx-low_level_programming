@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc -S $CFILE > tmp.s | mv tmp.s 
+gcc -S $CFILE 
