@@ -22,12 +22,14 @@ int main(void)
 			}
 			putchar(n);
 			putchar(m);
+			if (n == '8' && m == '9')
+				continue;
 			putchar(',');
 			putchar(' ');
 			m++;
 		}
 		n++;
-		m = n+1;
+		m = n + 1;
 	}
 	putchar('\n');
 	return (0);
