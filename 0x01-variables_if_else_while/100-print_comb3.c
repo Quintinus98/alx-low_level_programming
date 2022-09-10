@@ -23,6 +23,8 @@ int main(void)
 			putchar(n);
 			putchar(m);
 			if (n == '8' && m == '9')
+				m++;
+				n++;
 				continue;
 			putchar(',');
 			putchar(' ');
