@@ -1,0 +1,2 @@
+#!/bin/bash
+gcc -o quote -Wall -pedantic -Werror -Wextra -std=gnu89 $CFILE
