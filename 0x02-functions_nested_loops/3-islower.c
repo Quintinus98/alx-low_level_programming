@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * _islower - Entry point
- * c - int
+ * @c: Of type int
  * Return: Always 0.
  */
 int _islower(int c)
