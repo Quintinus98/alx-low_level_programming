@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * _islower - Entry point
- *
+ * c - int
  * Return: Always 0.
  */
 int _islower(int c)
@@ -16,5 +16,5 @@ int _islower(int c)
 			retVal = 1;
 		}
 	}
-	return retVal;
+	return (retVal);
 }
