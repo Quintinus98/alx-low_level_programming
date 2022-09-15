@@ -2,6 +2,7 @@
 #include "main.h"
 /**
  * print_to_98 - Entry point
+ * putstring - Takes an int and returns a string.
  * @n: Number value
  *
  * Return: Always 0 (Success)
@@ -13,11 +14,11 @@ void putstring(long n)
 		_putchar('-');
 		n *= -1;
 	}
-	if (n/10)
+	if (n / 10)
 	{
-		putstring(n/10);
+		putstring(n / 10);
 	}
-	_putchar(n%10 + '0');
+	_putchar(n % 10 + '0');
 }
 
 void print_to_98(int n)
