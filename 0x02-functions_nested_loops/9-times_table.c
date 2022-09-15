@@ -40,8 +40,11 @@ void times_table(void)
 			}
 			else
 			{
+				if (j != 0)
+				{
+					_putchar(' ');
+				}
 				res = res + '0';
-				_putchar(' ');
 				_putchar(res);
 			}
 			if (j == 9)
