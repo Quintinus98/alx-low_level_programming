@@ -1,11 +1,8 @@
 #include <stdio.h>
 #include "main.h"
 /**
- * print_to_98 - Entry point
- * putstring - Takes an int and returns a string.
+ * putstring - Entry point
  * @n: Number value
- *
- * Return: Always 0 (Success)
  */
 void putstring(long n)
 {
@@ -21,6 +18,12 @@ void putstring(long n)
 	_putchar(n % 10 + '0');
 }
 
+/**
+ * print_to_98 - Entry point
+ * @n: Number value
+ *
+ * Return: Always 0 (Success)
+ */
 void print_to_98(int n)
 {
 	int i;
