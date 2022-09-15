@@ -22,7 +22,13 @@ void print_to_98(int n)
 				i *= -1;
 				state = '-';
 			}
-			if (i >= 10)
+			if (i >= 100)
+			{
+				_putchar((i/10)/10%10 + '0');
+				_putchar((i/10)%10 + '0');
+				_putchar(i%10 + '0');
+			}
+			else if (i >= 10)
 			{
 				_putchar(i/10 + '0');
 				_putchar(i%10 + '0');
@@ -31,6 +37,10 @@ void print_to_98(int n)
 			{
 				_putchar(i + '0');
 			}
+			if (state == '-')
+			{
+				i *= -1;
+			}
 			if (i == 98)
 			{
 				i++;
@@ -38,10 +48,6 @@ void print_to_98(int n)
 			}
 			_putchar(',');
 			_putchar(' ');
-			if (state == '-')
-			{
-				i *= -1;
-			}
 		}
 	}
 	if (n == 98)
