@@ -7,18 +7,17 @@
  */
 void putstring(long n)
 {
-        if (n < 0)
-        {
-                _putchar('-');
-                n *= -1;
-        }
-        if (n / 10)
-        {
-                putstring(n / 10);
-        }
-        _putchar(n % 10 + '0');
+	if (n < 0)
+	{
+	       	_putchar('-');
+	       	n *= -1;
+	}
+	if (n / 10)
+	{
+		putstring(n / 10);
+	}
+	_putchar(n % 10 + '0');
 }
-
 /**
  * times_table - Entry point
  *
@@ -33,7 +32,7 @@ void times_table(void)
 	{
 		for (j = 0; j <= 9; j++)
 		{
-			res = i*j;
+			res = i * j;
 			if (res / 10)
 			{
 				putstring(res);
