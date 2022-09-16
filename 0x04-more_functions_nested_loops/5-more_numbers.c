@@ -12,8 +12,9 @@ void putstring(long n)
 	}
 	_putchar(n % 10 + '0');
 }
+
 /**
- * most_numbers - Prints numbers
+ * more_numbers - Prints numbers
  */
 void more_numbers(void)
 {
