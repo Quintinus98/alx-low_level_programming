@@ -3,11 +3,11 @@
 /**
  * print_diagonal - Prints Line
  * @n: integer value
- *
  */
 void print_diagonal(int n)
 {
-	int i, j;
+	int i;
+	int j;
 
 	if (n <= 0)
 	{
