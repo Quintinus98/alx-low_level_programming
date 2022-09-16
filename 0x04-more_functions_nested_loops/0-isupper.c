@@ -14,7 +14,7 @@ int _isupper(int c)
 
 	for (i = 'A'; i <= 'Z'; i++)
 	{
-		if(c == i)
+		if (c == i)
 		{
 			state = 1;
 		}
