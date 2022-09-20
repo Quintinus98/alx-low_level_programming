@@ -9,7 +9,7 @@ int len(char *s)
 {
 	unsigned int cnt = 0;
 
-	while(*s != '\0')
+	while (*s != '\0')
 	{
 		cnt++;
 		s++;
@@ -26,15 +26,8 @@ void puts_half(char *str)
 	unsigned int n, i, cnt;
 
 	cnt = len(str);
-	
-	if (cnt % 2 == 0)
-	{
-		n = cnt / 2;
-	}
-	else
-	{
-		n = (cnt - 1) / 2;
-	}
+
+	n = cnt / 2;
 
 	for (i = n; i < cnt; i++)
 	{
