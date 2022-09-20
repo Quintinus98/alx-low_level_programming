@@ -7,17 +7,15 @@
 
 void puts2(char *str)
 {
-	char p[] = "1359";
+	int cnt = 0;
 	while (*str != '\0')
 	{
-		if (*str == p[0] || *str == '3' || *str == '5' || *str == '7' || *str == '9')
-		{
-		}
-		else
+		if (cnt % 2 == 0)
 		{
 			_putchar(*str);
 		}
 		str++;
+		cnt++;
 	}
 	_putchar('\n');
 }
