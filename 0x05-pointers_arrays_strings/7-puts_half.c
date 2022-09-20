@@ -27,7 +27,14 @@ void puts_half(char *str)
 
 	cnt = len(str);
 
-	n = cnt / 2;
+	if (cnt % 2 == 0)
+	{
+		n = cnt / 2;
+	}
+	else
+	{
+		n = (cnt + 1) / 2;
+	}
 
 	for (i = n; i < cnt; i++)
 	{
