@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "main.h"
 /**
- * len - Length of string
+ * xlen - Length of string
  * @s: String
  *
  * Return: 0
@@ -9,7 +9,7 @@
 int xlen(char *s)
 {
 	unsigned int cnt = 0;
-	
+
 	while (*s != '\0')
 	{
 		cnt++;
@@ -28,7 +28,7 @@ int xlen(char *s)
 char *_strcpy(char *dest, char *src)
 {
 	int i, len;
-	
+
 	len = xlen(src);
 	for (i = 0; i < len; i++)
 	{
