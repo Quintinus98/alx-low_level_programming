@@ -8,6 +8,7 @@
 void puts2(char *str)
 {
 	int cnt = 0;
+
 	while (*str != '\0')
 	{
 		if (cnt % 2 == 0)
