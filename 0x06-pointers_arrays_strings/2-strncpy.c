@@ -1,26 +1,7 @@
 #include <stdio.h>
 #include "main.h"
 /**
- * len - String length
- * @s: String variable
- *
- * Return: 0
- */
-int len(char *s)
-{
-	int cnt = 0;
-
-	while (*s != '\0')
-	{
-		cnt++;
-		s++;
-	}
-
-	return (cnt++);
-
-}
-/**
- * _strncat - String Concatenation fn
+ * _strncpy - String Concatenation fn
  * @dest: destinination
  * @src: Source
  * @n: number of bytes from src
