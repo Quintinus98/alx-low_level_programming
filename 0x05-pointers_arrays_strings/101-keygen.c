@@ -9,6 +9,5 @@ int main(void)
 	int r;
 
 	r = rand();
-	// printf("%d\n", r);
 	return (r);
 }
