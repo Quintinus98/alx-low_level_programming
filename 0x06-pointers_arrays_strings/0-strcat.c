@@ -3,21 +3,21 @@
 /**
  * len - String length
  * @s: String variable
- * 
+ *
  * Return: 0
  */
 int len(char *s)
 {
-  int cnt = 0;
+	int cnt = 0;
 
-  while (*s != '\0')
-  {
-    cnt++;
-    s++;
-  }
+	while (*s != '\0')
+	{
+		cnt++;
+		s++;
+	}
 
-  return (cnt++);
-  
+	return (cnt++);
+
 }
 /**
  * _strcat - String Concatenation fn
