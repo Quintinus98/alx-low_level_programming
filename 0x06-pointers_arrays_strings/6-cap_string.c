@@ -27,7 +27,7 @@ char char_toupper(char c)
  */
 char *cap_string(char *s)
 {
-	char sep[] = {' ', '\t', '\n', ',', ';', '.', '!'}
+	char sep[] = {' ', '\t', '\n', ',', ';', '.', '!'};
        	char sep2[] = {'?', '"', '(', ')', '{', '}'};
 	int i;
 	int n = sizeof(sep) / sizeof(char);
