@@ -9,6 +9,7 @@
 char *string_toupper(char *c)
 {
 	char sVal = 32;
+	char *cAddress = c;
 
 	while (*c != '\0')
 	{
@@ -17,5 +18,6 @@ char *string_toupper(char *c)
 		c++;
 	}
 
+	c = cAddress;
 	return (c);
 }
