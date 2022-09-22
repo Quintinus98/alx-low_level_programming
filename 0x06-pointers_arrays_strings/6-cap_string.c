@@ -27,7 +27,8 @@ char char_toupper(char c)
  */
 char *cap_string(char *s)
 {
-	char sep[] = {' ', '\t', '\n', ',', ';', '.', '!', '?', '"', '(', ')', '{', '}'};
+	char sep[] = {' ', '\t', '\n', ',', ';', '.', '!'}
+       	char sep2[] = {'?', '"', '(', ')', '{', '}'};
 	int i;
 	int n = sizeof(sep) / sizeof(char);
 	char *sAddress = s;
@@ -36,7 +37,7 @@ char *cap_string(char *s)
 	{
 		for (i = 0; i < n; i++)
 		{
-			if (*s == sep[i])
+			if (*s == sep[i] || *s == sep2[i])
 			{
 				s++;
 				*s = char_toupper(*s);
