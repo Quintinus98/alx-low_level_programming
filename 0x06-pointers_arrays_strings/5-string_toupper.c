@@ -4,9 +4,8 @@
  * string_toupper - Changes all lowercase letters to uppercase
  * @c: Character
  *
- * Return: 0
+ * Return: Always 0.
  */
-
 char *string_toupper(char *c)
 {
 	char sVal = 32;
@@ -14,9 +13,7 @@ char *string_toupper(char *c)
 	while (*c != '\0')
 	{
 		if (*c >= 97 && *c <= 122)
-		{
 			*c = *c - sVal;
-		}
 		c++;
 	}
 
