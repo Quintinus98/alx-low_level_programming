@@ -12,7 +12,7 @@ int main(void)
     char *ptr;
 
     ptr = cap_string(str);
-    printf("%s", ptr);
-    printf("%s", str);
+    printf("Ptr\n%s\n", ptr);
+    printf("Str\n%s\n", str);
     return (0);
 }

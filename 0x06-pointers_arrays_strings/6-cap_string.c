@@ -30,24 +30,22 @@ char *cap_string(char *s)
 	char sep[] = {' ', '\t', '\n', ',', ';', '.', '!', '?', '"', '(', ')', '{', '}'};
 	int i;
 	int n = sizeof(sep) / sizeof(char);
-	char c;
+	char *sAddress = s;
 
 	while (*s != '\0')
 	{
-		i = 0;
-		while (i < n)
+		for (i = 0; i < n; i++)
 		{
 			if (*s == sep[i])
 			{
 				s++;
-				c = *s;
-				*s = char_toupper(c);
+				*s = char_toupper(*s);
 				s--;
 			}
-			i++;
 		}
 		s++;
 	}
+	s = sAddress;
 
 	return (s);
 }
