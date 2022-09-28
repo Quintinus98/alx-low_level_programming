@@ -7,7 +7,6 @@
  *
  * Return: 0
  */
-
 char *_strchr(char *s, char c)
 {
 	char *sAdd = NULL;
@@ -21,7 +20,7 @@ char *_strchr(char *s, char c)
 		}
 		s++;
 	}
-
 	s = sAdd;
+
 	return (s);
 }
