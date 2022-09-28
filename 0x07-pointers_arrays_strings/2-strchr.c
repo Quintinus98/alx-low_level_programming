@@ -10,7 +10,7 @@
 
 char *_strchr(char *s, char c)
 {
-	char *sAdd;
+	char *sAdd = NULL;
 
 	while (*s != '\0')
 	{
