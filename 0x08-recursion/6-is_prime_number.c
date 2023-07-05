@@ -40,6 +40,11 @@ int is_prime_number(int n)
 	int check;
 
 	check = check_prime_number(n, i);
+	if (n <= 1)
+	{
+		return (0);
+	}
+
 	if (check == 1)
 	{
 		return (1);
