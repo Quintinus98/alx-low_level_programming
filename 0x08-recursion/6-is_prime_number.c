@@ -39,11 +39,12 @@ int is_prime_number(int n)
 	int i = n / 2;
 	int check;
 
-	check = check_prime_number(n, i);
 	if (n <= 1)
 	{
 		return (0);
 	}
+
+	check = check_prime_number(n, i);
 
 	if (check == 1)
 	{
