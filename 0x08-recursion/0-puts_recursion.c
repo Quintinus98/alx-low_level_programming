@@ -3,7 +3,7 @@
 /**
  * _puts_recursion - Puts chars using recursion
  * @s: character
- * 
+ *
  * Return: 0
 */
 
