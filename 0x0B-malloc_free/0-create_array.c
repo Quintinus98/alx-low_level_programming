@@ -3,11 +3,11 @@
 #include <stdio.h>
 
 /**
- * main - main program
- * @argc: count of the arguments supplied to the program
- * @argv: array of pointers to the strings which are those arguments
+ * create_array - Creates an array using memory allocation.
+ * @size: size of the desired array
+ * @c: a character
  *
- * Return: Exit success
+ * Return: a pointer to the array or null.
 */
 
 char *create_array(unsigned int size, char c)
