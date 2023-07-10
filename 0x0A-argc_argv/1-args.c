@@ -12,13 +12,7 @@
 
 int main(int argc, char *argv[])
 {
-	int counter = 0;
 	(void)argv;
-
-	while (argc--)
-	{
-		counter++;
-	}
-	printf("%d", (counter - 1));
+	printf("%d\n", (argc - 1));
 	exit(EXIT_SUCCESS);
 }
