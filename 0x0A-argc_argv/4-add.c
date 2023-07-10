@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 	if (argc <= 1)
 	{
 		printf("0\n");
-		exit(EXIT_FAILURE);
+		exit(EXIT_SUCCESS);
 	}
 
 	for (j = 1; j < argc; j++)
@@ -30,7 +30,7 @@ int main(int argc, char **argv)
 			if (!(argv[j][k] <= '9') || !(argv[j][k] >= '0'))
 			{
 				printf("Error\n");
-				exit(EXIT_FAILURE);
+				return (1);
 			}
 		}
 	}
