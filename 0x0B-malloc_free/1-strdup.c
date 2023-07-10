@@ -33,11 +33,11 @@ char *_strdup(char *str)
 	char *ar;
 	unsigned int i, len;
 
-	len = xlen(str);
-	ar = malloc(len * sizeof(char));
-
 	if (str == NULL)
 		return (NULL);
+
+	len = xlen(str);
+	ar = malloc(len * sizeof(char));
 
 	if (ar == NULL)
 		return (NULL);
