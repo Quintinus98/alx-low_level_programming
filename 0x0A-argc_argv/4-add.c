@@ -12,24 +12,31 @@
 
 int main(int argc, char **argv)
 {
-	int i, result = 0;
-	int converted_arg;
+	int result = 0;
+	int i, j, k;
 
 	if (argc <= 1)
 	{
 		printf("0\n");
 		exit(EXIT_FAILURE);
 	}
-	for (i = 1; i < argc; i++)
+
+	for (j = 1; j < argc; j++)
 	{
-		converted_arg = strtol(argv[i], NULL, 10);
-		if (!converted_arg)
+		for (k = 0; argv[j][k] != '\0'; k++)
 		{
-			printf("Error\n");
-			return (1);
+			if (argv[j][0] == '-')
+				continue;
+			if (!(argv[j][k] <= '9') || !(argv[j][k] >= '0'))
+			{
+				printf("Error\n");
+				exit(EXIT_FAILURE);
+			}
 		}
-		result += converted_arg;
 	}
+
+	for (i = 1; i < argc; i++)
+		result += atoi(argv[i]);
 
 	printf("%d\n", result);
 	exit(EXIT_SUCCESS);
