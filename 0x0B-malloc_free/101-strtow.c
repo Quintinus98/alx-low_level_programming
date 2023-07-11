@@ -55,7 +55,7 @@ char **strtow(char *str)
 	char **ar, *word;
 	int count, i, j, w, len, cnt, state = 0, c = 0;
 
-	if (str == NULL || str == "")
+	if (str == NULL)
 		return (NULL);
 	len = xlen(str);
 	count = word_count(str);
