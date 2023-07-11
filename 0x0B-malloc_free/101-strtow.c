@@ -57,7 +57,7 @@ char **strtow(char *str)
 
 	if (str == NULL)
 		return (NULL);
-	len = xlen(str);
+	len = xlen(str) + 1;
 	count = word_count(str);
 	ar = malloc((count + 1) * sizeof(char *));
 	if (ar == NULL)
@@ -66,7 +66,7 @@ char **strtow(char *str)
 	{
 		if (str[i] != ' ')
 			state = 1;
-		if (str[i] == ' ')
+		if (str[i] == ' ' || str[i] == '\0')
 			state = 0;
 		if (state == 1)
 			cnt++;
