@@ -68,7 +68,7 @@ char **strtow(char *str)
 			cnt++;
 		if (str[i] == ' ' || str[i] == '\0')
 		{
-			if (cnt > 0)
+			if (cnt)
 			{
 				word = malloc((cnt + 1) * sizeof(char));
 				if (word == NULL)
@@ -86,6 +86,6 @@ char **strtow(char *str)
 			}
 		}
 	}
-	ar[count + 1] = NULL;
+	ar[count] = NULL;
 	return (ar);
 }
