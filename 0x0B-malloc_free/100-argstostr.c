@@ -37,7 +37,7 @@ char *argstostr(int ac, char **av)
 	for (i = 0; i < ac; i++)
 		count += (xlen(av[i]) - 1);
 
-	ar = malloc((count + ac) * sizeof(char));
+	ar = malloc((count + ac + 1) * sizeof(char));
 
 	for (j = 0; j < ac; j++)
 	{
