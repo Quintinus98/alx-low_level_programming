@@ -53,7 +53,7 @@ int word_count(char *s)
 char **strtow(char *str)
 {
 	char **ar, *word;
-	int count, i, j, w, len, cnt, state = 0, c = 0;
+	int count, i, j, w, len, cnt, c = 0;
 
 	if (str == NULL)
 		return (NULL);
@@ -65,12 +65,8 @@ char **strtow(char *str)
 	for (i = 0; i < len; i++)
 	{
 		if (str[i] != ' ')
-			state = 1;
-		if (str[i] == ' ' || str[i] == '\0')
-			state = 0;
-		if (state == 1)
 			cnt++;
-		else
+		if (str[i] == ' ' || str[i] == '\0')
 		{
 			if (cnt > 0)
 			{
