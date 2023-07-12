@@ -53,7 +53,7 @@ int word_count(char *s)
 char **strtow(char *str)
 {
 	char **ar, *word;
-	int count, i, len, cnt = 0, c = 0, first, last;
+	int count, i, j, w, len, cnt, c = 0;
 
 	if (str == NULL)
 		return (NULL);
@@ -64,6 +64,8 @@ char **strtow(char *str)
 		return (NULL);
 	for (i = 0; i < len; i++)
 	{
+		if (str[i] != ' ')
+			cnt++;
 		if (str[i] == ' ' || str[i] == '\0')
 		{
 			if (cnt)
@@ -71,18 +73,17 @@ char **strtow(char *str)
 				word = malloc((cnt + 1) * sizeof(char));
 				if (word == NULL)
 					return (NULL);
-				last = i;
-				while (first < last)
-					*word++ = str[first++];
-				*word = '\0';
-				ar[c] = word - cnt;
+				w = 0;
+				for (j = i - cnt; j < i; j++)
+				{
+					word[w] = str[j];
+					w++;
+				}
+				word[cnt] = '\0';
+				ar[c] = word;
 				c++;
 				cnt = 0;
 			}
-		}
-		else if (cnt++ == 0)
-		{
-			first = i;
 		}
 	}
 	ar[count] = NULL;
