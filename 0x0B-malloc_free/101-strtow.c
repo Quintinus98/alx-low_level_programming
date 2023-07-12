@@ -55,9 +55,10 @@ char **strtow(char *str)
 	char **ar, *word;
 	int count, i, len, cnt = 0, c = 0, first, last;
 
-	if (str == NULL)
+	len = xlen(str);
+	if (str == NULL || len == 0)
 		return (NULL);
-	len = xlen(str) + 1;
+	len = len + 1;
 	count = word_count(str);
 	ar = malloc((count + 1) * sizeof(char *));
 	if (ar == NULL)
