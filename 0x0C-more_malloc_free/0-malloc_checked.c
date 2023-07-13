@@ -13,11 +13,12 @@ void *malloc_checked(unsigned int b)
 {
 	char *ar;
 
-	ar = malloc(sizeof(int) * b);
+	if (b <= 0)
+		exit(98);
+
+	ar = malloc(sizeof(b) * b);
 	if (ar == NULL)
-	{
-		printf("NULL\n");
-		exit(EXIT_FAILURE);
-	}
+		exit(98);
+
 	return (ar);
 }
