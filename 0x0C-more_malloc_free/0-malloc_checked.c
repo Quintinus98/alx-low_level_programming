@@ -11,7 +11,7 @@
 
 void *malloc_checked(unsigned int b)
 {
-	char *ar;
+	void *ar;
 
 	if (b <= 0)
 		exit(98);
