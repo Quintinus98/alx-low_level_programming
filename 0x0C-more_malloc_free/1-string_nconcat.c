@@ -32,8 +32,7 @@ int len(char *s)
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *ar;
-	unsigned int lens1 = len(s1);
-	unsigned int lens2 = len(s2);
+	unsigned int lens1 = len(s1), lens2 = len(s2);
 	unsigned int sum, i, k = 0;
 
 	if (s1 == NULL)
