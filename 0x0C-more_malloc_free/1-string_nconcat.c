@@ -12,8 +12,11 @@ int len(char *s)
 {
 	int cnt = 0;
 
-	while (s && s[cnt])
+	while (s != '\0')
+	{
+		s++;
 		cnt++;
+	}
 
 	return (cnt++);
 }
@@ -45,11 +48,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		ar[i] = s1[i];
 
 	while (i < sum)
-	{
-		ar[i] = s2[k];
-		i++;
-		k++;
-	}
+		ar[i++] = s2[k++];
 
 	ar[i] = '\0';
 
