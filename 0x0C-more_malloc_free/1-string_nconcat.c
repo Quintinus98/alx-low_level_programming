@@ -32,11 +32,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	unsigned int lens1 = len(s1), lens2 = len(s2);
 	unsigned int sum, i, k = 0;
 
-	if (s1 == NULL)
-		s1 = "";
-	else if (s2 == NULL)
-		s2 = "";
-
 	if (n >= lens2)
 		sum = lens1 + lens2;
 	else
@@ -49,11 +44,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	for (i = 0; i < lens1; i++)
 		ar[i] = s1[i];
 
-	while (n < lens2 && i < (lens1 + n))
+	while (i < sum)
 		ar[i++] = s2[k++];
 
-	while (n >= lens2 && i < (lens1 + lens2))
-		ar[i++] = s2[k++];
+
 	ar[i] = '\0';
 
 	return (ar);
