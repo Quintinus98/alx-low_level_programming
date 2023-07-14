@@ -28,7 +28,6 @@ int len(char *s)
  *
  * Return: a pointer to the allocated memory
 */
-
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *ar;
@@ -41,15 +40,11 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		s2 = "";
 
 	if (n >= lens2)
-	{
 		sum = lens1 + lens2;
-	}
 	else
-	{
 		sum = lens1 + n;
-	}
 
-	ar = malloc(sizeof(char) * (sum + 1));
+	ar = malloc((sum + 1) * sizeof(char));
 	if (ar == NULL)
 		return (NULL);
 
@@ -63,7 +58,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		k++;
 	}
 	ar[i] = '\0';
-
 
 	return (ar);
 }
