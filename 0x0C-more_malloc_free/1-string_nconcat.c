@@ -12,11 +12,8 @@ int len(char *s)
 {
 	int cnt = 0;
 
-	while (s != '\0')
-	{
-		s++;
+	while (s && s[cnt++])
 		cnt++;
-	}
 
 	return (cnt);
 }
