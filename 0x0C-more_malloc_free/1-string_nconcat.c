@@ -12,11 +12,9 @@ int len(char *s)
 {
 	int cnt = 0;
 
-	while (*s != '\0')
-	{
+	while (s && s[cnt])
 		cnt++;
-		s++;
-	}
+
 	return (cnt++);
 }
 
@@ -51,12 +49,11 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	for (i = 0; i < lens1; i++)
 		ar[i] = s1[i];
 
-	while (i < sum)
-	{
-		ar[i] = s2[k];
-		i++;
-		k++;
-	}
+	while (n < lens2 && i < (lens1 + n))
+		ar[i++] = s2[k++];
+
+	while (n >= lens2 && i < (lens1 + lens2))
+		ar[i++] = s2[k++];
 	ar[i] = '\0';
 
 	return (ar);
