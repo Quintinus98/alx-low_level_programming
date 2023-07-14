@@ -18,7 +18,7 @@ int len(char *s)
 		cnt++;
 	}
 
-	return (cnt++);
+	return (cnt);
 }
 
 /**
