@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 /**
- * string_nconcat - allocates memory for an array, using malloc.
+ * _calloc - allocates memory for an array, using malloc.
  * @nmemb: number of elements in memory for an array
  * @size: size of bytes
  *
