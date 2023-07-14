@@ -12,7 +12,7 @@ int len(char *s)
 {
 	int cnt = 0;
 
-	while (s && s[cnt++])
+	while (s && s[cnt])
 		cnt++;
 
 	return (cnt);
