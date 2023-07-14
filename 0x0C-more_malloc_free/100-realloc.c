@@ -1,25 +1,5 @@
 #include "main.h"
 #include <stdlib.h>
-/**
- * _memcpy - Copies memory area
- * @dest: Destination
- * @src: Source memory area
- * @n: Copies
- *
- * Return: 0
- */
-
-char *_memcpy(char *dest, char *src, unsigned int n)
-{
-	char *destAdd = dest;
-	unsigned int i = 0;
-
-	for (; i < n; i++)
-		*dest++ = *src++;
-	dest = destAdd;
-
-	return (dest);
-}
 
 /**
  * _realloc - reallocates a memory block using malloc and free
@@ -32,10 +12,11 @@ char *_memcpy(char *dest, char *src, unsigned int n)
 
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	void *ar;
+	char *ar, *tmp;
+	unsigned int i;
 
-	if (ptr == NULL)
-		ar = malloc(new_size);
+	if (new_size == old_size)
+		return (ptr);
 
 	if (new_size == 0 && ptr)
 	{
@@ -43,15 +24,22 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		return (NULL);
 	}
 
-	if (new_size == old_size)
-		return (ptr);
+	if (ptr == NULL)
+		ar = malloc(new_size);
 
 	ar = malloc(new_size);
 	if (!ar)
 		return (NULL);
 
+	tmp = ptr;
+
 	if (new_size > old_size)
-		ar = _memcpy(ar, ptr, new_size);
+		for (i = 0; i < new_size; i++)
+			ar[i] = tmp[i];
+
+	if (new_size < old_size)
+		for (i = 0; i < old_size; i++)
+			ar[i] = tmp[i];
 
 	free(ptr);
 	return (ar);
