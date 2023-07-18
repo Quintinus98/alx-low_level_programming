@@ -8,7 +8,7 @@
  * @age: age of the dog
  * @owner: owner of the dog
  *
- * Return: Nothing.
+ * Return: A new dog of type dog.
 */
 dog_t *new_dog(char *name, float age, char *owner)
 {
