@@ -14,7 +14,7 @@ int int_index(int *array, int size, int (*cmp)(int))
 	int i;
 
 	if (!cmp || !array)
-		exit(EXIT_FAILURE);
+		return (-1);
 
 	if (size <= 0)
 		return (-1);
@@ -25,4 +25,3 @@ int int_index(int *array, int size, int (*cmp)(int))
 
 	return (-1);
 }
-
