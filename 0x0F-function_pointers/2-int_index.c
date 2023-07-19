@@ -11,7 +11,7 @@
  */
 int int_index(int *array, int size, int (*cmp)(int))
 {
-	int i, returnVal;
+	int i;
 
 	if (!cmp || !array)
 		exit(EXIT_FAILURE);
