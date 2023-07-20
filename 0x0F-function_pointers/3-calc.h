@@ -1,5 +1,5 @@
-#ifndef _CALC_H_
-#define _CALC_H_
+#ifndef CALC_H_
+#define CALC_H_
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -10,7 +10,7 @@
  * @f: The function associated
  *
  * Description: operator and function
- */
+*/
 typedef struct op
 {
 	char *op;
