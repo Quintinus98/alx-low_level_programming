@@ -9,6 +9,7 @@
 */
 int main(int argc, char **argv)
 {
+	char arg2;
 	int result;
 	int (*funct)(int, int);
 
@@ -17,7 +18,7 @@ int main(int argc, char **argv)
 		printf("Error\n");
 		exit(98);
 	}
-
+	arg2 = *argv[2];
 	funct = get_op_func(argv[2]);
 	if (!funct)
 	{
@@ -25,7 +26,7 @@ int main(int argc, char **argv)
 		exit(99);
 	}
 
-	if ((*argv[2] == '/' ||  *argv[2] == '%') && argv[3] == 0)
+	if ((arg2 == '/' ||  arg2 == '%') && atoi(argv[3]) == 0)
 	{
 		printf("Error\n");
 		exit(100);
