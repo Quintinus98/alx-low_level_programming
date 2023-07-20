@@ -1,26 +1,5 @@
 #include "3-calc.h"
-/**
- * _strcmp - Compares two strings
- * @s1: string one
- * @s2: string two
- *
- * Return: 0
- */
-int _strcmp(char *s1, char *s2)
-{
-	unsigned int diff = 0;
-
-	while (*s1 != '\0')
-	{
-		diff = *s1 - *s2;
-		if (*s1 != *s2)
-			break;
-		s1++;
-		s2++;
-	}
-
-	return (diff);
-}
+#include <string.h>
 
 /**
  * get_op_func - pointer to function
@@ -43,7 +22,7 @@ int (*get_op_func(char *s))(int, int)
 	i = 0;
 	while (ops[i].op)
 	{
-		if (_strcmp((ops[i]).op, s) == 0)
+		if (strcmp(ops[i].op, s) == 0)
 			return (ops[i].f);
 		i++;
 	}
