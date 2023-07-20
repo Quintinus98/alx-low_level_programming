@@ -1,12 +1,15 @@
- #ifndef _CALC_H_
- #define _CALC_H_
- #include <stdio.h>
- #include <stdlib.h>
- /*
+#ifndef _CALC_H_
+#define _CALC_H_
+
+#include <stdio.h>
+#include <stdlib.h>
+
+/**
  * struct op - Struct op
- *
  * @op: The operator
  * @f: The function associated
+ *
+ * Description: operator and function
  */
 typedef struct op
 {

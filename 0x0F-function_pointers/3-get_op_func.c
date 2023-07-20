@@ -1,6 +1,4 @@
 #include "3-calc.h"
-#include <stdlib.h>
-#include <stdio.h>
 /**
  * _strcmp - Compares two strings
  * @s1: string one
@@ -16,9 +14,7 @@ int _strcmp(char *s1, char *s2)
 	{
 		diff = *s1 - *s2;
 		if (*s1 != *s2)
-		{
 			break;
-		}
 		s1++;
 		s2++;
 	}
