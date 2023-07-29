@@ -20,20 +20,20 @@
 
         section .data		; Data section, initialized variables
 msg:	db "Hello, Holberton", 0	; C string needs 0
-fmt:    db "%s", 16, 0          ; The printf format, "\n",'0'
+fmt:	db "%s", 15, 0          ; The printf format, "\n",'0'
 
-        section .text           ; Code section.
+      section .text           ; Code section.
 
-        global main		; the standard gcc entry point
+      global main		; the standard gcc entry point
 main:				; the program label for the entry point
-        push    rbp		; set up stack frame, must be aligned
+      push    rbp		; set up stack frame, must be aligned
 
-	mov	rdi,fmt
-	mov	rsi,msg
-	mov	rax,0		; or can be  xor  rax,rax
-        call    printf		; Call C function
+			mov	rdi,fmt
+			mov	rsi,msg
+			mov	rax,0		; or can be  xor  rax,rax
+			call	printf		; Call C function
 
-	pop	rbp		; restore stack
+			pop	rbp		; restore stack
 
-	mov	rax,0		; normal, no error, return value
-	ret			; return
+			mov	rax,0		; normal, no error, return value
+			ret			; return
