@@ -15,14 +15,16 @@
 ; }
 
 ;	Declare needed C  functions
-section .data
-  message db "Hello, Holberton\n", 0
+extern	printf		; the C function, to be called
 
-section .text
-	global _start
-_start:
-	mov rax, 1
-	mov rdi, 1
-	mov rsi, message
-	mov rdx, 16
-	syscall
+fmt:	db "Hello, Holberton\n", 10, 0	; The printf format, "\n",'0'
+	SECTION .text           ; Code section.
+	global main		; the standard gcc entry point
+main:				; the program label for the entry point
+  push    rbp		; set up stack frame
+	mov	rdi,fmt		; format for printf
+	mov	rax,0		; no xmm registers
+  call    printf		; Call C function
+	pop	rbp		; restore stack
+	mov	rax,0		; normal, no error, return value
+	ret			; return
