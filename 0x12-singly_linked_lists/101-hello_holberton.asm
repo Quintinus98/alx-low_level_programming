@@ -24,7 +24,7 @@ SECTION .text           ; Code section.
 
 main:				; the program label for the entry point
 	mov	edi,fmt		; format for printf
-	mov	eax,0		; no xmm registers
-  call    printf		; Call C function
+	xor	eax, eax
+  call	printf		; Call C function
 	mov	eax,0		; normal, no error, return value
 	ret			; return
