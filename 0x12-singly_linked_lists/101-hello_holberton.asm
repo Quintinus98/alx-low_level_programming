@@ -23,10 +23,8 @@ SECTION .text           ; Code section.
 	global main		; the standard gcc entry point
 
 main:				; the program label for the entry point
-  push    rbp		; set up stack frame
 	mov	edi,fmt		; format for printf
-	mov	rax,0		; no xmm registers
+	mov	eax,0		; no xmm registers
   call    printf		; Call C function
-	pop	rbp		; restore stack
 	mov	eax,0		; normal, no error, return value
 	ret			; return
