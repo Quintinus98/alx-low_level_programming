@@ -1,12 +1,9 @@
-; 101-hello_holberton.asm    print a string using printf
-
-				global _start		; the standard gcc entry point
-				extern	printf		; the C function, to be called
-_start:				; the program label for the entry point
-				mov		edi, fmt		; format for printf
-				xor		eax, eax
-				call	printf		; Call C function
-				mov		eax, 0		; normal, no error, return value
-				ret			; return
-
-fmt:	db `Hello, Holberton\n`, 0	; The printf format, "\n",'0'
+          global    main
+          extern    printf
+main:
+	  mov   edi, format
+	  xor   eax, eax
+	  call  printf
+	  mov 	eax, 0
+	  ret
+format: db `Hello, Holberton\n`,0
