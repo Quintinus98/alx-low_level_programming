@@ -15,16 +15,14 @@
 ; }
 
 ;	Declare needed C  functions
-			extern	printf		; the C function, to be called
-msg:	db "Hello, Holberton\n", 0	; C string needs 0
-fmt:	db "Hello, Holberton\n", 0	; The printf format, "\n",'0'
-      global main		; the standard gcc entry point
-main:				; the program label for the entry point
-      push    rbp		; set up stack frame, must be aligned
-			mov	rdi,fmt
-			mov	rsi,msg
-			mov	rax,0		; or can be  xor  rax,rax
-			call	printf		; Call C function
-			pop	rbp		; restore stack
-			mov	rax,0		; normal, no error, return value
-			ret			; return
+section .data
+  message db "Hello, Holberton\n", 0
+
+section .text
+	global _start
+_start:
+	mov rax, 1
+	mov rdi, 1
+	mov rsi, message
+	mov rdx, 16
+	syscall
