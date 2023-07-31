@@ -11,13 +11,14 @@ int pop_listint(listint_t **head)
 	unsigned int cnt = 1;
 	int ret = 0;
 
-	if (*head == NULL)
+	if (!*head)
 		return (0);
 
 	while (cnt)
 	{
 		ret = (*head)->n;
 		pop = (*head)->next;
+		free(*head);
 		(*head) = pop;
 		cnt--;
 	}
