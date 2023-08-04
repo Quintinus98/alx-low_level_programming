@@ -9,7 +9,7 @@ void print_binary(unsigned long int n)
 {
 	int i, mask;
 
-	for (i = 10; i >= 0; i--)
+	for (i = 63; i >= 0; i--)
 	{
 		mask = (1 << i);
 		if (n & mask)
