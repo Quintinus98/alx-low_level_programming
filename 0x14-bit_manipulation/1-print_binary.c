@@ -7,14 +7,25 @@
 
 void print_binary(unsigned long int n)
 {
-	int i, mask;
+	unsigned long int mask = 0x8000;
 
-	for (i = 63; i >= 0; i--)
+	if (n == 0)
 	{
-		mask = (1 << i);
-		if (n & mask)
-			_putchar('1');
-		else
-			_putchar('0');
+		_putchar('0');
+		return;
+	}
+	if (n == 1)
+	{
+		_putchar('1');
+		return;
+	}
+
+	while (mask != 0)
+	{
+	if ((n & mask) == 0)
+		_putchar('0');
+	else
+		_putchar('1');
+	mask = mask >> 1;
 	}
 }
