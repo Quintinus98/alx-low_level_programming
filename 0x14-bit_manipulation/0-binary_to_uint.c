@@ -10,26 +10,16 @@
 
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int cnt = 0, sum = 0;
-	unsigned int rem, base = 1, num = 0;
+	unsigned int i, sum = 0;
 
 	if (!b)
 		return (0);
 
-	while (b[cnt])
+	for (i = 0; b[i]; i++)
 	{
-		if (b[cnt] == '1' || b[cnt] == '0')
-			cnt++;
-		else
+		if (b[i] < '0' || b[i] > '1')
 			return (0);
-	}
-	num = atoi(b);
-	while (num)
-	{
-		rem = num % 10;
-		sum += rem * base;
-		base *= 2;
-		num /= 10;
+		sum = 2 * sum + (b[i] - '0');
 	}
 
 	return (sum);
