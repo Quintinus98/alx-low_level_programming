@@ -32,6 +32,8 @@ int get_bit(unsigned long int n, unsigned int index)
 	unsigned long int mask, shift;
 	unsigned int cnt = count_bit(n);
 
+	if (n == 0 && index == 0)
+		return (0);
 	if (index >= cnt)
 		return (-1);
 
