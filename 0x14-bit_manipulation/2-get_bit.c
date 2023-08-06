@@ -15,5 +15,5 @@ int get_bit(unsigned long int n, unsigned int index)
 
 	shift = 1 << index;
 	mask = n & shift;
-	return (mask) ? 1 : 0;
+	return (mask ? 1 : 0);
 }
