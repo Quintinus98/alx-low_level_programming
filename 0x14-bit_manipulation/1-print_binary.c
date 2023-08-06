@@ -11,11 +11,11 @@ void print_binary(unsigned long int n)
 	int i, showBit = 0;
 
 	/**
-	 * Example n = 98 -> 10011000 (Binary);
+	 * Example n = 98 -> 1100010 (Binary);
 	 * n >> i -> where i = 63;
 	 * mask: 0000 all zeros in 63 places.
 	 * when i = 7;
-	 * mask = 00000001;
+	 * mask = 0000001;
 	 * we can then compare the 1 (last bit).
 	*/
 	for (i = 63; i >= 0; i--)
