@@ -27,17 +27,17 @@ int main(void)
  *
  * int count_bit(unsigned long int n)
  * {
- * 	int i, showBit = 0;
- * 	unsigned long int mask;
-
- * 	for (i = 63; i >= 0; i--)
- * 	{
- * 		mask = n >> i;
- * 		if (mask & 1)
- * 			showBit++;
- * 		else if (showBit)
- * 			showBit++;
- * 	}
- * 	return (showBit);
+ * int i, showBit = 0;
+ * unsigned long int mask;
+ *
+ * for (i = 63; i >= 0; i--)
+ * {
+ * mask = n >> i;
+ * if (mask & 1)
+ * showBit++;
+ * else if (showBit)
+ * showBit++;
+ * }
+ * return (showBit);
  * }
 */
