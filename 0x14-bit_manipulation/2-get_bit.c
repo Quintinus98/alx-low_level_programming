@@ -25,14 +25,12 @@ int count_bit(unsigned long int n)
  * get_bit - prints the binary representation of a number.
  * @n: decimal number
  * @index: index to return.
+ * Return: Bit in the selected index
 */
 int get_bit(unsigned long int n, unsigned int index)
 {
 	unsigned long int mask, shift;
 	unsigned int cnt = count_bit(n);
-
-	if (n == 0 && index == 0)
-		return (0);
 
 	if (index >= cnt)
 		return (-1);
