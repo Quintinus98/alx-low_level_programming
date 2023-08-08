@@ -20,7 +20,7 @@ int create_file(const char *filename, char *text_content)
 
 	fd = creat(filename, mode);
 	if (fd == -1)
-		return (0);
+		return (-1);
 
 	fw = write(fd, text_content, cnt);
 	if (fw == -1)
