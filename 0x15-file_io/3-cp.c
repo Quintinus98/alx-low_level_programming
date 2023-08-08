@@ -50,7 +50,6 @@ int copy_from_to(int files[], char **av)
 	if (cnt == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
-		close(files[0]);
 		exit(98);
 	}
 
