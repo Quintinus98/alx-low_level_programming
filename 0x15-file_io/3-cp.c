@@ -21,12 +21,6 @@ int main(int ac, char **av)
 		exit(98);
 	}
 	files[1] = creat(av[2], 0664);
-	if (files[1] == -1)
-	{
-		dprintf(2, "Error: Can't read from file %s\n", av[2]);
-		close(files[0]);
-		exit(98);
-	}
 
 	res = copy_from_to(files, av);
 	return (res);
@@ -46,7 +40,7 @@ int copy_from_to(int files[], char **av)
 
 	while ((cnt = read(files[0], buffer, sizeof(buffer))) != 0)
 	{
-		if (write(files[1], buffer, cnt) != cnt)
+		if (write(files[1], buffer, cnt) != cnt || files[1] == -1)
 		{
 			dprintf(2, "Error: Can't write to %s\n", av[2]);
 			close(files[0]);
