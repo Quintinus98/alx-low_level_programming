@@ -22,7 +22,7 @@ int main(int ac, char **av)
 		exit(98);
 	}
 	files[1] = creat(av[2], 0664);
-	while ((cnt = read(files[0], buffer, sizeof(buffer))) != 0)
+	while ((cnt = read(files[0], buffer, BUFSIZ)) > 0)
 	{
 		if (write(files[1], buffer, cnt) != cnt || files[1] == -1)
 		{
