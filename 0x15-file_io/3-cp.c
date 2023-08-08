@@ -7,7 +7,7 @@
  */
 int main(int ac, char **av)
 {
-	int files[2], cnt, i, f_close; /* copy from files[0] to files[1].*/
+	int files[2], cnt, i, f_close, f_close1; /* copy from files[0] to files[1].*/
 	char buffer[BUFSIZ];
 
 	if (ac != 3)
@@ -36,14 +36,15 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		exit(98);
 	}
-	for (i = 0; i < 2; i++)
+	f_close = close(files[0]);
+	f_close1 = close(files[1]);
+	if (f_close == -1 || f_close1 == -1)
 	{
-		f_close = close(files[i]);
 		if (f_close == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", files[i]);
-			exit(100);
-		}
+			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", files[0]);
+		if (f_close1 == -1)
+			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", files[1]);
+		exit(100);
 	}
 	return (0);
 }
