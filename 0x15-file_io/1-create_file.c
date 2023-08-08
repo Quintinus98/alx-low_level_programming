@@ -15,17 +15,15 @@ int create_file(const char *filename, char *text_content)
 
 	if (!filename)
 		return (-1);
-	if (!text_content)
-		text_content = "";
+	while (text_content && text_content[cnt])
+		cnt++;
 
 	fd = creat(filename, mode);
 	if (fd == -1)
 		return (0);
-	while (text_content[cnt])
-		cnt++;
 
 	fw = write(fd, text_content, cnt);
-	if (!fw)
+	if (fw == -1)
 		return (-1);
 	close(fd);
 
