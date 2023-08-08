@@ -9,21 +9,22 @@
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	FILE *fileName;
-	char ch;
-	size_t cnt = 0;
+	ssize_t file_read, file_write;
+	char *str;
+	int file_open;
 
-	fileName = fopen(filename, "r");
-	if (!fileName || !filename)
+	str = malloc(sizeof(char) * letters);
+	if (!str || !filename)
 		return (0);
 
-	do
-	{
-		ch = fgetc(fileName);
-		_putchar(ch);
-		cnt++;
-	} while (cnt < letters && ch != EOF);
+	file_open = open(filename, O_RDONLY);
+	file_read = read(file_open, str, letters);
+	file_write = write(STDOUT_FILENO, str, file_read);
 
-	fclose(fileName);
-	return (cnt);
+	if (file_open < 0 || file_read < 0 || file_write < 0)
+	{
+		free(str);
+		return (0);
+	}
+	return (file_write);
 }
