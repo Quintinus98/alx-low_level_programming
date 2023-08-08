@@ -21,11 +21,13 @@ int create_file(const char *filename, char *text_content)
 	fd = creat(filename, mode);
 	if (fd == -1)
 		return (0);
-	while (text_content && text_content[cnt])
+	while (text_content[cnt])
 		cnt++;
 
 	fw = write(fd, text_content, cnt);
+	if (!fw)
+		return (-1);
 	close(fd);
 
-	return (fw);
+	return (1);
 }
