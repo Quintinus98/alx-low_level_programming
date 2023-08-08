@@ -11,13 +11,13 @@ int main(int ac, char **av)
 
 	if (ac != 3)
 	{
-		dprintf(2, "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 	files[0] = open(av[1], O_RDONLY);
 	if (files[0] == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", av[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		exit(98);
 	}
 	files[1] = creat(av[2], 0664);
@@ -42,14 +42,14 @@ int copy_from_to(int files[], char **av)
 	{
 		if (write(files[1], buffer, cnt) != cnt || files[1] == -1)
 		{
-			dprintf(2, "Error: Can't write to %s\n", av[2]);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 			close(files[0]);
 			exit(99);
 		}
 	}
 	if (cnt == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", av[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		close(files[0]);
 		exit(98);
 	}
@@ -59,7 +59,7 @@ int copy_from_to(int files[], char **av)
 		f_close = close(files[i]);
 		if (f_close == -1)
 		{
-			dprintf(2, "Error: Can't close fd %d\n", files[i]);
+			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", files[i]);
 			exit(100);
 		}
 	}
