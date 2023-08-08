@@ -7,7 +7,7 @@
  */
 int main(int ac, char **av)
 {
-	int files[2], cnt, i, f_close, f_close1; /* copy from files[0] to files[1].*/
+	int files[2], cnt, f_close, f_close1; /* copy from files[0] to files[1].*/
 	char buffer[BUFSIZ];
 
 	if (ac != 3)
