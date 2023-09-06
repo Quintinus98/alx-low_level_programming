@@ -75,6 +75,11 @@ void print_header(const ElfHeader *elf)
 	entry_point_add(elf->ident[4], elf);
 }
 
+/**
+ * entry_point_add - Add entry point
+ * @entry: entry to add.
+ * @elf: Header
+*/
 void entry_point_add(uint8_t entry, const ElfHeader *elf)
 {
 	switch (entry)

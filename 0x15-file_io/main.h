@@ -19,7 +19,7 @@ typedef struct ElfHeader
 	{
 		uint32_t entry32;
 		uint64_t entry64;
-	};
+	} entry;
 } ElfHeader;
 void read_file(FILE *fin, ElfHeader *elf);
 void print_header(const ElfHeader *elf);
@@ -28,6 +28,7 @@ const char *file_type(uint16_t e_type);
 const char *get_data(uint8_t e_data);
 const char *get_class(uint8_t class);
 const char *get_ver(uint8_t ver);
+void entry_point_add(uint8_t entry, const ElfHeader *elf);
 
 ssize_t read_textfile(const char *filename, size_t letters);
 int create_file(const char *filename, char *text_content);
