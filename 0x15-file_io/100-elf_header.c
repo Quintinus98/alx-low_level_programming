@@ -1,4 +1,3 @@
-#include <elf.h>
 #include "main.h"
 
 /**
@@ -41,11 +40,11 @@ void read_file(FILE *fin, ElfHeader *elf)
 	READ(fin, elf->e_type);
 	if (elf->ident[4] == 1)
 	{
-		READ(fin, elf->entry32);
+		READ(fin, elf->entry.entry32);
 	}
 	else if (elf->ident[4] == 2)
 	{
-		READ(fin, elf->entry64);
+		READ(fin, elf->entry.entry64);
 	}
 	else
 	{
@@ -60,22 +59,34 @@ void read_file(FILE *fin, ElfHeader *elf)
 */
 void print_header(const ElfHeader *elf)
 {
+	int i;
+
 	printf("ELF Header:\n");
 	printf("  Magic:  ");
-	for (int i = 0; i < 16; i++)
+	for (i = 0; i < 16; i++)
 		printf(" %02x", elf->ident[i]);
 
-	printf("\n  %-35s %s\n", "Class:", get_class(elf->ident[4]));
-	printf("  %-35s %s \n", "Data:", get_data(elf->ident[5]));
-	printf("  %-35s %u %s\n", "Version:", elf->ident[6], get_ver(elf->ident[6]));
-	printf("  %-35s %s\n", "OS:", os_abi(elf->ident[7]));
-	printf("  %-35s %u\n", "ABI Version:", elf->ident[8]);
-	printf("  %-35s %s\n", "Type:", file_type(elf->e_type));
+	printf("\n	%-35s %s\n", "Class:", get_class(elf->ident[4]));
+	printf("	%-35s %s \n", "Data:", get_data(elf->ident[5]));
+	printf("	%-35s %u %s\n", "Version:", elf->ident[6], get_ver(elf->ident[6]));
+	printf("	%-35s %s\n", "OS:", os_abi(elf->ident[7]));
+	printf("	%-35s %u\n", "ABI Version:", elf->ident[8]);
+	printf("	%-35s %s\n", "Type:", file_type(elf->e_type));
+	entry_point_add(elf->ident[4], elf);
+}
 
-	if (elf->ident[4] == 1)
-		printf("  %-35s %x\n", "Entry point address:", elf->entry32);
-	else
-		printf("  %-35s %lx\n", "Entry point address:", elf->entry64);
+void entry_point_add(uint8_t entry, const ElfHeader *elf)
+{
+	switch (entry)
+	{
+	case 1:
+		printf("	%-35s 0x%02x\n", "Entry point address:", elf->entry.entry32);
+		break;
+	case 2:
+		printf("	%-35s 0x%02lx\n", "Entry point address:", elf->entry.entry64);
+	default:
+		break;
+	}
 }
 
 /**
@@ -119,8 +130,8 @@ const char *get_data(uint8_t e_data)
 	switch (e_data)
 	{
 	case ELFDATANONE: return ("Unknown data format");
-	case ELFDATA2LSB: return ("2's complement, little-endian");
-	case ELFDATA2MSB: return ("2's complement, big-endian");
+	case ELFDATA2LSB: return ("2's complement, little endian");
+	case ELFDATA2MSB: return ("2's complement, big endian");
 	default: return ("");
 	}
 }
@@ -134,11 +145,11 @@ const char *os_abi(uint8_t os)
 {
 	switch (os)
 	{
-	case ELFOSABI_NONE: return ("UNIX System V ABI");
+	case ELFOSABI_NONE: return ("UNIX - System V");
 	case ELFOSABI_HPUX: return ("HP-UX");
-	case ELFOSABI_NETBSD: return ("NetBSD");
+	case ELFOSABI_NETBSD: return ("UNIX - NetBSD");
 	case ELFOSABI_GNU: return	("LINUX");
-	case ELFOSABI_SOLARIS: return ("Sun Solaris");
+	case ELFOSABI_SOLARIS: return ("UNIX - Solaris");
 	case ELFOSABI_AIX: return ("IBM AIX");
 	case ELFOSABI_IRIX: return ("SGI Irix");
 	case ELFOSABI_FREEBSD: return ("FreeBSD");
@@ -149,7 +160,7 @@ const char *os_abi(uint8_t os)
 	case ELFOSABI_ARM: return ("ARM");
 	case ELFOSABI_STANDALONE: return ("STANDALONE");
 	}
-	return ("");
+	return ("<unknown: 53>");
 }
 
 /**
