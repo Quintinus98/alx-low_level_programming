@@ -18,7 +18,7 @@ typedef struct ElfHeader
 	{
 		uint32_t entry32;
 		uint64_t entry64;
-	};
+	} entry;
 } ElfHeader;
 void read_file(FILE *fin, ElfHeader *elf);
 void print_header(const ElfHeader *elf);
