@@ -1,23 +1,5 @@
 #include "main.h"
-/**
- * len - String length
- * @s: String variable
- *
- * Return: 0
- */
-int len(char *s)
-{
-	int cnt = 0;
 
-	while (*s != '\0')
-	{
-		cnt++;
-		s++;
-	}
-
-	return (cnt++);
-
-}
 /**
  * _strcat - String Concatenation fn
  * @dest: destinination
@@ -27,8 +9,8 @@ int len(char *s)
  */
 char *_strcat(char *dest, char *src)
 {
-	int cntdest = len(dest);
-	int cntSrc = len(src);
+	int cntdest = _strlen(dest);
+	int cntSrc = _strlen(src);
 	int total = cntdest + cntSrc;
 	int i = 0;
 
