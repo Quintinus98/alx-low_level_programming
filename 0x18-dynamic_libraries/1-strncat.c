@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * len - String length
+ * zlen - String length
  * @s: String variable
  *
  * Return: 0
