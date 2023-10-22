@@ -12,7 +12,7 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 	dlistint_t *last = *head;
 
 	if (newNode == NULL)
-		print_error("Error: malloc failed");
+		return (NULL);
 
 	newNode->n = n;
 	newNode->next = NULL;
@@ -21,7 +21,7 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 	{
 		newNode->prev = NULL;
 		*head = newNode;
-		return;
+		return (*head);
 	}
 	while (last->next != NULL)
 		last = last->next;
