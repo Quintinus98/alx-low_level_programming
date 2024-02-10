@@ -15,11 +15,14 @@ int jump_search(int *array, size_t size, int value)
 	if (array == NULL || size == 0)
 		return (-1);
 
+	printf("Value checked array[%ld] = [%d]\n", first, array[first]);
+	if (array[first] == value)
+		return (first);
+
 	while (first <= size)
 	{
 		/* code */
 		/* |0| 1, 2, |3| 4, 5, |6| 7, 8, |9| */
-		printf("Value checked array[%ld] = [%d]\n", first, array[first]);
 		if (array[next] >= value || next >= size)
 		{
 			/* check the block */
@@ -33,6 +36,8 @@ int jump_search(int *array, size_t size, int value)
 		}
 		first = next;
 		next = first + jump;
+		if (first <= size)
+			printf("Value checked array[%ld] = [%d]\n", first, array[first]);
 	}
 	return (-1);
 }
